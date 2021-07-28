@@ -5,27 +5,24 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NMSLib</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ApplicationIcon />
+    <StartupObject />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\thoma\Documents\Reloaded II Mod Manager\Mods\NMS Lib\</OutputPath>
-    <DocumentationFile>D:\Repos\C#\No Mans Sky Mods\NMS Lib\NMS Lib\NMS Lib.xml</DocumentationFile>
+    <OutputPath>C:\Users\thoma\Documents\Reloaded II Mod Manager\Mods\NMS Practice Mod\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="ModConfig.json" />
+    <None Remove="Preview.png" />
     <None Remove="Publish.ps1" />
-    <None Remove="Resources\Icon.png" />
-    <None Remove="NMS Lib.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="ModConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -36,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Icon.png" />
+    <ProjectReference Include="..\NMS Lib\NMS Lib.csproj" />
   </ItemGroup>
 
 </Project>

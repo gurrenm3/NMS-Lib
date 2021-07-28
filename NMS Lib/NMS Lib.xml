@@ -4,6 +4,25 @@
         <name>NMS Lib</name>
     </assembly>
     <members>
+        <member name="T:NMSLib.Api.ActionExtensions">
+            <summary>
+            Extension methods for System.Action
+            </summary>
+        </member>
+        <member name="M:NMSLib.Api.ActionExtensions.InvokeAll(System.Collections.Generic.List{System.Action})">
+            <summary>
+            Invoke all actions in the list
+            </summary>
+            <param name="actions">list of actions to invoke</param>
+        </member>
+        <member name="M:NMSLib.Api.ActionExtensions.InvokeAll``1(System.Collections.Generic.List{System.Action{``0}},``0)">
+            <summary>
+            Invoke all actions in the list
+            </summary>
+            <typeparam name="T">argument type</typeparam>
+            <param name="actions">list of actions to invoke</param>
+            <param name="argument">argument to pass in while invoking</param>
+        </member>
         <member name="E:NMSLib.Configuration.Implementation.Configurable`1.ConfigurationUpdated">
             <summary>
             Automatically executed when the external configuration file is updated.

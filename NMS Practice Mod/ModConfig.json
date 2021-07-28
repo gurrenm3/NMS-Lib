@@ -1,0 +1,16 @@
+{
+  "ModId": "NMS_Practice_Mod",
+  "ModName": "NMS Practice Mod",
+  "ModAuthor": "Gurrenm3",
+  "ModVersion": "1.0.0",
+  "ModDescription": "A NMS Practice Mod that uses NMSLib",
+  "ModDll": "NMS Practice Mod.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/NMS Practice Mod.dll",
+  "ModR2RManagedDll64": "x64/NMS Practice Mod.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "ModDependencies": [ "reloaded.sharedlib.hooks" ],
+  "OptionalDependencies": null,
+  "SupportedAppId": []
+}
