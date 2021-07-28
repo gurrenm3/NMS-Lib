@@ -1,18 +1,18 @@
-﻿using NMS_Mod_Helper.Configuration;
-using NMS_Mod_Helper.Configuration.Implementation;
+﻿using NMSLib.Configuration;
+using NMSLib.Configuration.Implementation;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
 
-namespace NMS_Mod_Helper
+namespace NMSLib
 {
     public class Program : IMod
     {
         /// <summary>
         /// Your mod if from ModConfig.json, used during initialization.
         /// </summary>
-        private const string MyModId = "NMS_Mod_Helper";
+        private const string MyModId = "NMS_Lib";
 
         /// <summary>
         /// Used for writing text to the console window.

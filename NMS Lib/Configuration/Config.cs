@@ -1,7 +1,7 @@
-﻿using NMS_Mod_Helper.Configuration.Implementation;
+﻿using NMSLib.Configuration.Implementation;
 using System.ComponentModel;
 
-namespace NMS_Mod_Helper.Configuration
+namespace NMSLib.Configuration
 {
     public class Config : Configurable<Config>
     {

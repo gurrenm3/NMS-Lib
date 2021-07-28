@@ -1,0 +1,16 @@
+{
+  "ModId": "NMS_Lib",
+  "ModName": "Modding API for No Man's Sky'",
+  "ModAuthor": "Gurrenm3",
+  "ModVersion": "1.0.0",
+  "ModDescription": "A Modding API for No Man's Sky'",
+  "ModDll": "NMS Lib.dll",
+  "ModIcon": "Icon.png",
+  "ModR2RManagedDll32": "x86/NMS Lib.dll",
+  "ModR2RManagedDll64": "x64/NMS Lib.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "ModDependencies": [ "reloaded.sharedlib.hooks" ],
+  "OptionalDependencies": null,
+  "SupportedAppId": []
+}

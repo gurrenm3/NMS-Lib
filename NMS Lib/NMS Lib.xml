@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NMS Lib</name>
+    </assembly>
+    <members>
+        <member name="E:NMSLib.Configuration.Implementation.Configurable`1.ConfigurationUpdated">
+            <summary>
+            Automatically executed when the external configuration file is updated.
+            Passes a new instance of the configuration as parameter.
+            Inside your event handler, replace the variable storing the configuration with the new one.
+            </summary>
+        </member>
+        <member name="P:NMSLib.Configuration.Implementation.Configurable`1.FilePath">
+            <summary>
+            Full path to the configuration file.
+            </summary>
+        </member>
+        <member name="P:NMSLib.Configuration.Implementation.Configurable`1.ConfigName">
+            <summary>
+            The name of the configuration file.
+            </summary>
+        </member>
+        <member name="P:NMSLib.Configuration.Implementation.Configurable`1.ConfigWatcher">
+            <summary>
+            Receives events on whenever the file is actively changed or updated.
+            </summary>
+        </member>
+        <member name="P:NMSLib.Configuration.Implementation.Configurable`1.Save">
+            <summary>
+            Saves the configuration to the hard disk.
+            </summary>
+        </member>
+        <member name="F:NMSLib.Configuration.Implementation.Configurable`1._readLock">
+            <summary>
+            Safety lock for when changed event gets raised twice on file save.
+            </summary>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurable`1.FromFile(System.String,System.String)">
+            <summary>
+            Loads a specified configuration from the hard disk, or creates a default if it does not exist.
+            </summary>
+            <param name="filePath">The full file path of the config.</param>
+            <param name="configName">The name of the configuration.</param>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurable`1.MakeConfigWatcher">
+            <summary>
+            Creates a <see cref="T:System.IO.FileSystemWatcher"/> that will automatically raise an
+            <see cref="M:NMSLib.Configuration.Implementation.Configurable`1.OnConfigurationUpdated"/> event when the config file is changed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurable`1.OnConfigurationUpdated">
+            <summary>
+            Reloads the configuration from the hard disk and raises the updated event.
+            </summary>
+        </member>
+        <member name="P:NMSLib.Configuration.Implementation.Configurator.ModFolder">
+            <summary>
+            Full path to the mod folder.
+            </summary>
+        </member>
+        <member name="P:NMSLib.Configuration.Implementation.Configurator.Configurations">
+            <summary>
+            Returns a list of configurations.
+            </summary> 
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurator.GetConfiguration``1(System.Int32)">
+            <summary>
+            Gets an individual user configuration.
+            </summary>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurator.SetModDirectory(System.String)">
+            <summary>
+            Sets the mod directory for the Configurator.
+            </summary>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurator.GetConfigurations">
+            <summary>
+            Returns a list of user configurations.
+            </summary>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Configurator.TryRunCustomConfiguration">
+            <summary>
+            Allows for custom launcher/configurator implementation.
+            If you have your own configuration program/code, run that code here and return true, else return false.
+            </summary>
+        </member>
+        <member name="M:NMSLib.Configuration.Implementation.Utilities.TryGetValue``1(System.Func{``0},System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <param name="getValue">Function that retrieves the value.</param>
+            <param name="timeout">The timeout in milliseconds.</param>
+            <param name="sleepTime">Amount of sleep per iteration/attempt.</param>
+            <param name="token">Token that allows for cancellation of the task.</param>
+            <exception cref="T:System.Exception">Timeout expired.</exception>
+        </member>
+        <member name="F:NMSLib.Program.MyModId">
+            <summary>
+            Your mod if from ModConfig.json, used during initialization.
+            </summary>
+        </member>
+        <member name="F:NMSLib.Program._logger">
+            <summary>
+            Used for writing text to the console window.
+            </summary>
+        </member>
+        <member name="F:NMSLib.Program._modLoader">
+            <summary>
+            Provides access to the mod loader API.
+            </summary>
+        </member>
+        <member name="F:NMSLib.Program._configuration">
+            <summary>
+            Stores the contents of your mod's configuration. Automatically updated by template.
+            </summary>
+        </member>
+        <member name="F:NMSLib.Program._hooks">
+            <summary>
+            An interface to Reloaded's the function hooks/detours library.
+            See: https://github.com/Reloaded-Project/Reloaded.Hooks
+                 for documentation and samples. 
+            </summary>
+        </member>
+        <member name="M:NMSLib.Program.Start(Reloaded.Mod.Interfaces.Internal.IModLoaderV1)">
+            <summary>
+            Entry point for your mod.
+            </summary>
+        </member>
+    </members>
+</doc>

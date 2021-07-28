@@ -1,7 +1,7 @@
 ﻿using Reloaded.Mod.Interfaces;
 using System.IO;
 
-namespace NMS_Mod_Helper.Configuration.Implementation
+namespace NMSLib.Configuration.Implementation
 {
     public class Configurator : IConfigurator
     {

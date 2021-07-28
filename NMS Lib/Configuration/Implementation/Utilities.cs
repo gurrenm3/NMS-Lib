@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 
-namespace NMS_Mod_Helper.Configuration.Implementation
+namespace NMSLib.Configuration.Implementation
 {
     public class Utilities
     {

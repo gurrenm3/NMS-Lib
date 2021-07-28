@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NMSLib</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Users\thoma\Documents\Reloaded II Mod Manager\Mods\NMS Lib\</OutputPath>
+    <DocumentationFile>D:\Repos\C#\No Mans Sky Mods\NMS Lib\NMS Lib\NMS Lib.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ModConfig.json" />
+    <None Remove="Publish.ps1" />
+    <None Remove="Resources\Icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ModConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reloaded.Memory" Version="4.1.1" />
+    <PackageReference Include="Reloaded.Mod.Interfaces" Version="1.9.0" />
+    <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Api\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Icon.png" />
+  </ItemGroup>
+
+</Project>
