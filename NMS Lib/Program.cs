@@ -1,6 +1,4 @@
-﻿using NMSLib.Configuration;
-using NMSLib.Configuration.Implementation;
-using Reloaded.Hooks.ReloadedII.Interfaces;
+﻿using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
@@ -25,11 +23,6 @@ namespace NMSLib
         private IModLoader _modLoader;
 
         /// <summary>
-        /// Stores the contents of your mod's configuration. Automatically updated by template.
-        /// </summary>
-        private Config _configuration;
-
-        /// <summary>
         /// An interface to Reloaded's the function hooks/detours library.
         /// See: https://github.com/Reloaded-Project/Reloaded.Hooks
         ///      for documentation and samples. 
@@ -45,30 +38,8 @@ namespace NMSLib
             _logger = (ILogger)_modLoader.GetLogger();
             _modLoader.GetController<IReloadedHooks>().TryGetTarget(out _hooks);
 
-            // Your config file is in Config.json.
-            // Need a different name, format or more configurations? Modify the `Configurator`.
-            // If you do not want a config, remove Configuration folder and Config class.
-            var configurator = new Configurator(_modLoader.GetDirectoryForModId(MyModId));
-            _configuration = configurator.GetConfiguration<Config>(0);
-            _configuration.ConfigurationUpdated += OnConfigurationUpdated;
-
             /* Your mod code starts here. */
 
-        }
-
-        private void OnConfigurationUpdated(IConfigurable obj)
-        {
-            /*
-                This is executed when the configuration file gets updated by the user
-                at runtime.
-            */
-
-            // Replace configuration with new.
-            _configuration = (Config)obj;
-            _logger.WriteLine($"[{MyModId}] Config Updated: Applying");
-
-            // Apply settings from configuration.
-            // ... your code here.
         }
 
         /* Mod loader actions. */
