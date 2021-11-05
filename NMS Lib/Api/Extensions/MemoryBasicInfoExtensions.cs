@@ -12,7 +12,7 @@
         /// <returns></returns>
         public static bool IsRegionFree(this Memory_Basic_Info memoryInfo)
         {
-            return memoryInfo.State == (uint)MemoryAllocateType.Free;
+            return memoryInfo.State == MemoryAllocateType.Free;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@
         /// <returns></returns>
         public static bool IsRegionFree(this Memory_Basic_Info64 memoryInfo)
         {
-            return memoryInfo.State == (uint)MemoryAllocateType.Free;
+            return memoryInfo.State == MemoryAllocateType.Free;
         }
     }
 }

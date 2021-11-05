@@ -1,10 +1,10 @@
-﻿using NMSLib.Api.Interfaces.Patches;
+﻿using NMSLib.Api;
 
 namespace NMSLib
 {
-    class NMS_MainMod : IStart
+    class NMS_MainMod : NMSMod
     {
-        public void Start()
+        public override void Start()
         {
             
         }

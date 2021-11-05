@@ -53,7 +53,6 @@ namespace NMS_Practice_Mod
             _configuration.ConfigurationUpdated += OnConfigurationUpdated;
 
             /* Your mod code starts here. */
-
         }
 
         private void OnConfigurationUpdated(IConfigurable obj)

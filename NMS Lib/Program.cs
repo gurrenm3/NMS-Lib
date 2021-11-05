@@ -39,8 +39,13 @@ namespace NMSLib
             _modLoader.GetController<IReloadedHooks>().TryGetTarget(out _hooks);
 
             /* Your mod code starts here. */
-            NMS_MainMod mainMod = new NMS_MainMod();
-            mainMod.Start();
+            _modLoader.OnModLoaderInitialized = new Action(() => 
+            {
+                NMSModRegister modRegister = new NMSModRegister();
+                modRegister.ModLoader = _modLoader;
+                modRegister.Logger = _logger;
+                modRegister.LoadAllNMSMods(_modLoader.GetActiveMods());
+            });
         }
 
         /* Mod loader actions. */
