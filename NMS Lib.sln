@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NMS Lib", "NMS Lib\NMS Lib.csproj", "{C71C1F39-CA9A-4947-961C-28A03F534F22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMS Practice Mod", "NMS Practice Mod\NMS Practice Mod.csproj", "{66F70BFD-394D-4785-B610-B84D48BB8634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NMS Practice Mod", "NMS Practice Mod\NMS Practice Mod.csproj", "{66F70BFD-394D-4785-B610-B84D48BB8634}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMSLib.Interfaces", "NMSLib.Interfaces\NMSLib.Interfaces.csproj", "{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{66F70BFD-394D-4785-B610-B84D48BB8634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66F70BFD-394D-4785-B610-B84D48BB8634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66F70BFD-394D-4785-B610-B84D48BB8634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

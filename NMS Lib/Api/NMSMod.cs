@@ -1,37 +1,43 @@
-﻿using Reloaded.Mod.Interfaces;
+﻿using NMSLib.Interfaces;
+using Reloaded.Mod.Interfaces;
+using Reloaded.Mod.Interfaces.Internal;
 
 namespace NMSLib.Api
 {
     /// <summary>
     /// Parent class for all NMS mods
     /// </summary>
-    public class NMSMod
+    public class NMSMod : INMSMod
     {
         /// <summary>
-        /// The ModLoader from Reloaded2. Can also be found in Program.cs
+        /// <inheritdoc/>
         /// </summary>
-        public IModLoader ModLoader { get; internal set; }
+        public IModConfigV1 ModInfo { get; set; }
 
         /// <summary>
-        /// The Logger from Reloaded2. Can also be found in Program.cs
+        /// <inheritdoc/>
         /// </summary>
-        public ILogger Logger { get; internal set; }
+        public INMSLogger Logger { get; set; }
 
         /// <summary>
-        /// Called once when the mod is loaded.
-        /// <br/>Happens after all mods have been registered by Reloaded2
+        /// <inheritdoc/>
+        /// </summary>
+        public IModLoader ModLoader { get; set; }
+
+        /// <summary>
+        /// <inheritdoc/>
         /// </summary>
         public virtual void Start()
         {
-
+            
         }
 
         /// <summary>
-        /// Called once every tick
+        /// <inheritdoc/>
         /// </summary>
         public virtual void Update()
         {
-
+            
         }
     }
 }

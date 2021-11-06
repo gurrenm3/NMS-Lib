@@ -1,16 +1,20 @@
-﻿using Reloaded.Hooks.ReloadedII.Interfaces;
+﻿using NMSLib.Api;
+using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
+using System.Diagnostics;
+using System.Linq;
+using NMSLib.Interfaces;
 
 namespace NMSLib
 {
-    public class Program : IMod
+    internal class Program : IMod, IExports
     {
         /// <summary>
         /// Your mod if from ModConfig.json, used during initialization.
         /// </summary>
-        private const string MyModId = "NMS_Lib";
+        private const string ModID = "NMS_Lib";
 
         /// <summary>
         /// Used for writing text to the console window.
@@ -30,72 +34,72 @@ namespace NMSLib
         private IReloadedHooks _hooks;
 
         /// <summary>
+        /// Instance of the NMSModController
+        /// </summary>
+        NMSModController _nmsModController;
+
+        /// <summary>
+        /// Instance of the API's NMSMod
+        /// </summary>
+        NMS_ApiMod _apiMod;
+
+        /// <summary>
+        /// Mod Info about the API
+        /// </summary>
+        IModConfigV1 _apiConfig;
+
+        /// <summary>
         /// Entry point for your mod.
         /// </summary>
-        public void Start(IModLoaderV1 loader)
+        public void StartEx(IModLoaderV1 loader, IModConfigV1 config)
         {
             _modLoader = (IModLoader)loader;
             _logger = (ILogger)_modLoader.GetLogger();
             _modLoader.GetController<IReloadedHooks>().TryGetTarget(out _hooks);
 
             /* Your mod code starts here. */
-            _modLoader.OnModLoaderInitialized = new Action(() => 
-            {
-                NMSModRegister modRegister = new NMSModRegister();
-                modRegister.ModLoader = _modLoader;
-                modRegister.Logger = _logger;
-                modRegister.LoadAllNMSMods(_modLoader.GetActiveMods());
-            });
+            _apiConfig = config;
+            InitAPI();
         }
 
-        /* Mod loader actions. */
-        public void Suspend()
+        private void InitAPI()
         {
-            /*  Some tips if you wish to support this (CanSuspend == true)
-             
-                A. Undo memory modifications.
-                B. Deactivate hooks. (Reloaded.Hooks Supports This!)
-            */
+            // Set API Logger
+            NMSLogger.SetAPILogger(new NMSLogger(_logger, _apiConfig));
+
+            // Init ModController
+            _nmsModController = new NMSModController(_modLoader, _logger);
+            RegisterAPI();
+            _modLoader.AddOrReplaceController<INmsController>(this, _nmsModController);
+
+            // Mod Updater
+            //   TODO
+
+            // Update Loop
+            NMSLogger.APIWriteLine("Starting Update Loop...");
+            UpdateLoop update = new UpdateLoop(_nmsModController.NMSMods);
+            update.StartUpdateLoopAsync();
+            NMSLogger.APIWriteLine("Update Loop started!");
         }
 
-        public void Resume()
+        private void RegisterAPI()
         {
-            /*  Some tips if you wish to support this (CanSuspend == true)
-             
-                A. Redo memory modifications.
-                B. Re-activate hooks. (Reloaded.Hooks Supports This!)
-            */
+            _apiMod = new NMS_ApiMod();
+            _nmsModController.RegisterNMSMod(_apiMod, _apiConfig);
+            _apiMod.Logger = NMSLogger.apiLogger;
         }
 
-        public void Unload()
-        {
-            /*  Some tips if you wish to support this (CanUnload == true).
-             
-                A. Execute Suspend(). [Suspend should be reusable in this method]
-                B. Release any unmanaged resources, e.g. Native memory.
-            */
-        }
+        #region Reloaded2 Methods
 
-        /*  If CanSuspend == false, suspend and resume button are disabled in Launcher and Suspend()/Resume() will never be called.
-            If CanUnload == false, unload button is disabled in Launcher and Unload() will never be called.
-        */
+        public void Suspend() {  }
+        public void Resume() {  }
+        public void Unload() {  }
         public bool CanUnload() => false;
         public bool CanSuspend() => false;
-
-        /* Automatically called by the mod loader when the mod is about to be unloaded. */
         public Action Disposing { get; }
-
-        /* Contains the Types you would like to share with other mods.
-           If you do not want to share any types, please remove this method and the
-           IExports interface.
-        
-           Inter Mod Communication: https://github.com/Reloaded-Project/Reloaded-II/blob/master/Docs/InterModCommunication.md
-        */
-        public Type[] GetTypes() => new Type[0];
-
-        /* This is a dummy for R2R (ReadyToRun) deployment.
-           For more details see: https://github.com/Reloaded-Project/Reloaded-II/blob/master/Docs/ReadyToRun.md
-        */
+        public Type[] GetTypes() => new Type[] { typeof(INmsController) };
         public static void Main() { }
+
+        #endregion
     }
 }

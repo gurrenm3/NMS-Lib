@@ -1,10 +1,8 @@
-using NMSLib.Api;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 
-namespace NMS_Lib.Api
+namespace NMSLib.Api
 {
     /// <summary>
     /// Extension methods for System.Reflection.Assembly
@@ -22,7 +20,7 @@ namespace NMS_Lib.Api
             List<Type> foundTypes = null;
             foreach (var type in assembly.GetTypes())
             {
-                if (type.BaseType.Namespace != baseType.Namespace)
+                if (type.BaseType != baseType)
                     continue;
 
                 if (foundTypes == null)

@@ -1,9 +1,13 @@
 ﻿using NMS_Practice_Mod.Configuration;
 using NMS_Practice_Mod.Configuration.Implementation;
+using NMSLib;
+using NMSLib.Api;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
+using System.Diagnostics;
+using NMSLib.Interfaces;
 
 namespace NMS_Practice_Mod
 {
@@ -39,7 +43,7 @@ namespace NMS_Practice_Mod
         /// <summary>
         /// Entry point for your mod.
         /// </summary>
-        public void Start(IModLoaderV1 loader)
+        public void StartEx(IModLoaderV1 loader, IModConfigV1 config)
         {
             _modLoader = (IModLoader)loader;
             _logger = (ILogger)_modLoader.GetLogger();
@@ -53,6 +57,19 @@ namespace NMS_Practice_Mod
             _configuration.ConfigurationUpdated += OnConfigurationUpdated;
 
             /* Your mod code starts here. */
+            //Debugger.Launch();
+
+            TryRegisteringMod(config);
+        }
+
+        private void TryRegisteringMod(IModConfigV1 config)
+        {
+            var controllerRef = _modLoader.GetController<INmsController>();
+            if (controllerRef == null || !controllerRef.TryGetTarget(out var nmsModController))
+                return;
+
+            var nmsMod = new MyMod();
+            nmsModController.RegisterNMSMod(nmsMod, config);
         }
 
         private void OnConfigurationUpdated(IConfigurable obj)

@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NMS Lib\NMS Lib.csproj" />
+    <ProjectReference Include="..\NMSLib.Interfaces\NMSLib.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
