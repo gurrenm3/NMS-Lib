@@ -6,7 +6,12 @@ namespace NMS_Practice_Mod
     {
         public override void Start()
         {
-            Logger.WriteLine("Practice Mod Starting");
+            Logger.WriteLine($"{ModInfo.ModName} has just Started!");
+        }
+
+        public override void Update()
+        {
+            
         }
     }
 }

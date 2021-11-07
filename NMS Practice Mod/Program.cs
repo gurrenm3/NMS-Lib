@@ -1,12 +1,9 @@
 ﻿using NMS_Practice_Mod.Configuration;
 using NMS_Practice_Mod.Configuration.Implementation;
-using NMSLib;
-using NMSLib.Api;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
-using System.Diagnostics;
 using NMSLib.Interfaces;
 
 namespace NMS_Practice_Mod
@@ -57,7 +54,7 @@ namespace NMS_Practice_Mod
             _configuration.ConfigurationUpdated += OnConfigurationUpdated;
 
             /* Your mod code starts here. */
-            //Debugger.Launch();
+            //Debugger.Launch();  // uncomment this to start the Debugger while the game is running
 
             TryRegisteringMod(config);
         }
