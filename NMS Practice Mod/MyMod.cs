@@ -1,8 +1,8 @@
-﻿using NMSLib.Api;
+﻿using ModSDK.Api;
 
 namespace NMS_Practice_Mod
 {
-    public class MyMod : NMSMod
+    public class MyMod : ModBase
     {
         public override void Start()
         {

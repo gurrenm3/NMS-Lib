@@ -1,17 +1,47 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NMSLib</RootNamespace>
+    <RootNamespace>ModSDK</RootNamespace>
+    <AssemblyName>NMS Lib</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>C:\Users\thoma\Documents\Reloaded II Mod Manager\Mods\NMS Lib\</OutputPath>
     <DocumentationFile>D:\Repos\C#\No Mans Sky Mods\NMS Lib\NMS Lib\NMS Lib.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Api\Enums\**" />
+    <Compile Remove="Api\Extensions\**" />
+    <Compile Remove="Api\Web\**" />
+    <Compile Remove="Api\Win32\**" />
+    <EmbeddedResource Remove="Api\Enums\**" />
+    <EmbeddedResource Remove="Api\Extensions\**" />
+    <EmbeddedResource Remove="Api\Web\**" />
+    <EmbeddedResource Remove="Api\Win32\**" />
+    <None Remove="Api\Enums\**" />
+    <None Remove="Api\Extensions\**" />
+    <None Remove="Api\Web\**" />
+    <None Remove="Api\Win32\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Api\Input.cs" />
+    <Compile Remove="Api\ModEvent.cs" />
+    <Compile Remove="Api\ModHook.cs" />
+    <Compile Remove="Api\NMSLogger.cs" />
+    <Compile Remove="Api\NMSMod.cs" />
+    <Compile Remove="Api\Time.cs" />
+    <Compile Remove="KeyPressInfo.cs" />
+    <Compile Remove="MousePressInfo.cs" />
+    <Compile Remove="NMSModController.cs" />
+    <Compile Remove="NMSModRegister.cs" />
+    <Compile Remove="UpdateLoop.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="ModConfig.json" />
@@ -36,11 +66,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NMSLib.Interfaces\NMSLib.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\..\Repos\ReloadedModSDK\ModSDK.Interfaces\ModSDK.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\Icon.png" />
   </ItemGroup>
+
+  <Import Project="..\..\..\..\Repos\ReloadedModSDK\ModSDK.Shared\ModSDK.Shared.projitems" Label="Shared" />
 
 </Project>

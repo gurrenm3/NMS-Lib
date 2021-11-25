@@ -1,15 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31321.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NMS Lib", "NMS Lib\NMS Lib.csproj", "{C71C1F39-CA9A-4947-961C-28A03F534F22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModSDK", "NMS Lib\ModSDK.csproj", "{C71C1F39-CA9A-4947-961C-28A03F534F22}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NMS Practice Mod", "NMS Practice Mod\NMS Practice Mod.csproj", "{66F70BFD-394D-4785-B610-B84D48BB8634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMSLib.Interfaces", "NMSLib.Interfaces\NMSLib.Interfaces.csproj", "{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModSDK.Interfaces", "..\..\..\Repos\ReloadedModSDK\ModSDK.Interfaces\ModSDK.Interfaces.csproj", "{17A64D3F-2378-492C-BCB5-F0E3A6E96B18}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ModSDK.Shared", "..\..\..\Repos\ReloadedModSDK\ModSDK.Shared\ModSDK.Shared.shproj", "{B3578B80-8538-4BB1-85D7-62835C034EC1}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\Repos\ReloadedModSDK\ModSDK.Shared\ModSDK.Shared.projitems*{b3578b80-8538-4bb1-85d7-62835c034ec1}*SharedItemsImports = 13
+		..\..\..\Repos\ReloadedModSDK\ModSDK.Shared\ModSDK.Shared.projitems*{c71c1f39-ca9a-4947-961c-28a03f534f22}*SharedItemsImports = 5
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -23,10 +29,10 @@ Global
 		{66F70BFD-394D-4785-B610-B84D48BB8634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66F70BFD-394D-4785-B610-B84D48BB8634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66F70BFD-394D-4785-B610-B84D48BB8634}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0730354C-C215-4E4E-A5E5-8A0FFC3ADD76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A64D3F-2378-492C-BCB5-F0E3A6E96B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A64D3F-2378-492C-BCB5-F0E3A6E96B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A64D3F-2378-492C-BCB5-F0E3A6E96B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A64D3F-2378-492C-BCB5-F0E3A6E96B18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

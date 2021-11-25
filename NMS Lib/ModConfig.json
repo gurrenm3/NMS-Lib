@@ -2,7 +2,7 @@
   "ModId": "NMS_Lib",
   "ModName": "NMS Lib",
   "ModAuthor": "Gurrenm3",
-  "ModVersion": "1.0.0",
+  "ModVersion": "0.0.1",
   "ModDescription": "A Modding API for No Man's Sky",
   "ModDll": "NMS Lib.dll",
   "ModIcon": "Icon.png",

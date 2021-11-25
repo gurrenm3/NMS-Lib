@@ -1,13 +1,10 @@
-﻿using NMSLib.Api;
+﻿using ModSDK.Interfaces;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
-using System.Diagnostics;
-using System.Linq;
-using NMSLib.Interfaces;
 
-namespace NMSLib
+namespace ModSDK
 {
     internal class Program : IMod, IExports
     {
@@ -36,7 +33,7 @@ namespace NMSLib
         /// <summary>
         /// Instance of the NMSModController
         /// </summary>
-        NMSModController _nmsModController;
+        ModController _nmsModController;
 
         /// <summary>
         /// Instance of the API's NMSMod
@@ -65,28 +62,28 @@ namespace NMSLib
         private void InitAPI()
         {
             // Set API Logger
-            NMSLogger.SetAPILogger(new NMSLogger(_logger, _apiConfig));
+            ModLogger.SetAPILogger(new ModLogger(_logger, _apiConfig));
 
             // Init ModController
-            _nmsModController = new NMSModController(_modLoader, _logger);
+            _nmsModController = new ModController(_modLoader, _logger);
             RegisterAPI();
-            _modLoader.AddOrReplaceController<INmsController>(this, _nmsModController);
+            _modLoader.AddOrReplaceController<IModController>(this, _nmsModController);
 
             // Mod Updater
             //   TODO
 
             // Update Loop
-            NMSLogger.APIWriteLine("Starting Update Loop...");
-            UpdateLoop update = new UpdateLoop(_nmsModController.NMSMods);
+            ModLogger.APIWriteLine("Starting Update Loop...");
+            UpdateLoop update = new UpdateLoop(_nmsModController.LoadedMods);
             update.StartUpdateLoopAsync();
-            NMSLogger.APIWriteLine("Update Loop started!");
+            ModLogger.APIWriteLine("Update Loop started!");
         }
 
         private void RegisterAPI()
         {
             _apiMod = new NMS_ApiMod();
-            _nmsModController.RegisterNMSMod(_apiMod, _apiConfig);
-            _apiMod.Logger = NMSLogger.apiLogger;
+            _nmsModController.RegisterMod(_apiMod, _apiConfig);
+            _apiMod.Logger = ModLogger.apiLogger;
         }
 
         #region Reloaded2 Methods
@@ -97,7 +94,7 @@ namespace NMSLib
         public bool CanUnload() => false;
         public bool CanSuspend() => false;
         public Action Disposing { get; }
-        public Type[] GetTypes() => new Type[] { typeof(INmsController) };
+        public Type[] GetTypes() => new Type[] { typeof(IModController) };
         public static void Main() { }
 
         #endregion

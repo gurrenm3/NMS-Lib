@@ -1,28 +1,38 @@
-﻿namespace NMSLib.Api
+﻿namespace ModSDK.Api
 {
     /// <summary>
-    /// Contains info about the Player
+    /// Contains info about the Player.
     /// </summary>
     public class PlayerStateData
     {
         /// <summary>
-        /// Player's current Health
+        /// Called whenever the player's health is changed.
         /// </summary>
-        public int Health { get; set; }
+        /// <value>Current health after change.</value>
+        public ModEvent<int> HealthChanged { get; set; }
 
         /// <summary>
-        /// Player's current Units
+        /// Called whenever the player's units is changed.
         /// </summary>
-        public int Units { get; set; }
+        /// <value>Current units after change.</value>
+        public ModEvent<int> UnitsChanged { get; set; }
 
         /// <summary>
-        /// Player's current Nanites
+        /// Called whenever the player's nanites is changed.
         /// </summary>
-        public int Nanites { get; set; }
+        /// <value>Current nanites after change.</value>
+        public ModEvent<int> NanitesChanged { get; set; }
 
         /// <summary>
-        /// Player's current QuickSilver
+        /// Called whenever the player's quicksilver is changed.
         /// </summary>
-        public int Quicksilver { get; set; }
+        /// <value>Current quicksilver after change.</value>
+        public ModEvent<int> QuicksilverChanged { get; set; }
+
+
+        public PlayerStateData()
+        {
+            
+        }
     }
 }

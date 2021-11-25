@@ -1,16 +1,20 @@
-﻿using NMSLib.Api;
-using NMSLib.Interfaces;
+﻿using ModSDK.Api;
 
-namespace NMSLib
+namespace ModSDK
 {
-    internal class NMS_ApiMod : NMSMod
+    internal class NMS_ApiMod : ModBase
     {
+        public static NMS_ApiMod Instance { get; private set; }
         Input inputManager = new Input();
+
+        public override void Awake()
+        {
+            Instance = this;
+            Logger.WriteLine("API is Initializing...");
+        }
 
         public override void Start()
         {
-            Logger.WriteLine("API is Initializing...");
-
             Logger.WriteLine("API finished Initializing!");
         }
 

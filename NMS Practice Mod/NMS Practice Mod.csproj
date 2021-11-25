@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <OutputType>WinExe</OutputType>
@@ -34,8 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NMS Lib\NMS Lib.csproj" />
-    <ProjectReference Include="..\NMSLib.Interfaces\NMSLib.Interfaces.csproj" />
+    <ProjectReference Include="..\NMS Lib\ModSDK.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
-using NMSLib.Interfaces;
+using ModSDK.Interfaces;
 
 namespace NMS_Practice_Mod
 {
@@ -61,12 +61,12 @@ namespace NMS_Practice_Mod
 
         private void TryRegisteringMod(IModConfigV1 config)
         {
-            var controllerRef = _modLoader.GetController<INmsController>();
+            var controllerRef = _modLoader.GetController<IModController>();
             if (controllerRef == null || !controllerRef.TryGetTarget(out var nmsModController))
                 return;
 
             var nmsMod = new MyMod();
-            nmsModController.RegisterNMSMod(nmsMod, config);
+            nmsModController.RegisterMod(nmsMod, config);
         }
 
         private void OnConfigurationUpdated(IConfigurable obj)
