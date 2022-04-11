@@ -1,4 +1,7 @@
-# NMS Lib
+
+# This has been replaced by [NoMansSky.Api](https://github.com/gurrenm3/NoMansSky.Api)
+
+## NMS Lib
 A C# modding API for the game No Mans Sky.
 
 Built with [Reloaded II](https://github.com/Reloaded-Project), an extremely powerful set of modding tools.
